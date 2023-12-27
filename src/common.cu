@@ -838,9 +838,14 @@ int main(int argc, char* argv[]) {
            (unsigned long long)maxBytes);
     return -1;
   }
+
 #ifdef MPI_SUPPORT
   MPI_Init(&argc, &argv);
+  PRINT("MPI SUPPORT");
+#else
+  PRINT("MPI NOT SUPPORT");
 #endif
+
   TESTCHECK(run());
   return 0;
 }
